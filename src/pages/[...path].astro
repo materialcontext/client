@@ -1,0 +1,20 @@
+---
+export async function getStaticPaths() {
+    const allPosts = await Astro.glob('../../content/blog/*.md');
+
+    return allPosts.map((post) => {
+        const {date, page} = post.frontmatter;
+        const year = date.split('-')[0];
+        const month = date.split('-')[1];
+        console.log(year, month, page)
+        return { 
+            params: { path: `${year}/${month}/${page}` },
+            props: {...post}
+        };
+    });
+}
+
+const { Content, frontmatter } = Astro.props;
+--- 
+
+<Content frontmatter={frontmatter} />

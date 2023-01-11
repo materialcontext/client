@@ -1,0 +1,47 @@
+---
+
+---
+  <div class="flex">
+    <button class="share" onclick="shareTo"><img id="facebook" class="w-9 h-9" src="/facebook.svg" alt="facebook"/></button>
+    <button class="share" onclick="shareTo"><img id="twitter" class="w-9 h-9" src="/twitter.svg" alt="twitter"/></button>
+    <button class="share" onclick="shareTo"><img id="email" class="w-9 h-9" src="/mail.svg" alt="mail"/></button>
+  </div>
+
+  <script is:inline>
+    const url = window.location.href;
+    const title = document.title;
+
+    const socials = {
+      facebook: {
+        title: "Facebook",
+        text: title,
+        url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURI(url)}`,
+      },
+      twitter: {
+        title: "Twitter",
+        text: title,
+        url: `https://twitter.com/intent/tweet?text=${encodeURI(url)}`,
+      },
+      email: {
+        title: "Email",
+        text: title,
+        url: `mailto:?subject=Check out this site&body=${encodeURI(url)}`,
+      },
+    };
+
+    function shareTo(e) {
+      const destination = e.target.id;
+      if (/(mobile|phone)/i.test(navigator.userAgent) && navigator.share) {
+        navigator
+          .share(socials[destination])
+          .then(() => console.log("Successful share"))
+          .catch((error) => console.log("Error sharing", error));
+      } else {
+        if (destination === "email") { return window.location.href = socials[destination].url; };
+        window.open(socials[destination].url, "_blank");
+      }
+    }
+
+    const shareButtons = document.querySelectorAll(".share");
+    shareButtons.forEach((button) => {button.addEventListener("click", e => shareTo(e))});
+  </script>
