@@ -13,14 +13,14 @@ const {title} = Astro.props
 	</head>
     <body>
        	<header>
-			<nav>
+			<nav class="border-b border-b-[#eee]">
 				<slot name="nav" />
 			</nav>
 		</header>
         <main class="px-2 pt-20 min-w-[16rem] md:max-w-[48rem] md:px-3 mx-auto">
 			<slot />
         </main>
-		<footer class="p-4 w-full h-16 bg-gray-100 flex flex-col space-y-3 items-center justify-center border-t border-t-[#ddd]">
+		<footer class="p-4 w-full h-14 bg-gray-100 flex flex-col space-y-3 items-center justify-center border-t border-t-[#ddd]">
             <span class="info-light text-[15px]">© 2023 Material Context</span>
         </footer>
     </body>

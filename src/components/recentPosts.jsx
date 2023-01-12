@@ -42,7 +42,7 @@ const preview = (post) => {
     );
 };
 
-export default function RecentPosts() {
+export default function RecentPosts(props) {
     return (
         <ul class="w-full flex flex-col">
             {posts.map(post => preview(post))}

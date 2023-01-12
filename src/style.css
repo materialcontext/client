@@ -18,7 +18,7 @@
 }
 
 body {
-  width: 100vw;
+  width: 100%;
 }
 
 a {
@@ -33,26 +33,26 @@ a:hover {
 
 .button-white {
   font-family: "Lato", sans-serif;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 700;
   color: var(--dark);
   background-color: #fff;
   border: none;
   border-radius: 0.25rem;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
 
 .button-color {
   font-family: "Lato", sans-serif;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 700;
   color: #fff;
   background-color: var(--accent);
   border: none;
   border-radius: 0.25rem;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
@@ -131,7 +131,7 @@ h6 {
   max-height: 48px;
   width: 100%;
   padding: .75rem;
-  border-bottom: 1px solid #ededed;
+  border-bottom: 1px solid #eee;
   overflow-y: hidden;
 }
 
@@ -179,5 +179,4 @@ p {
   max-height: 80px;
   width: 100%;
   padding: .75rem;
-  border-bottom: 1px solid #ededed;
 }

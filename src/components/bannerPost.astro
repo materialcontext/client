@@ -1,0 +1,21 @@
+---
+const frontmatter = {
+    title: "A Dummy Article Preview", 
+    date: "2022-01-01", 
+    subtitle: "This is a demo preview.", 
+    author: "Material Context"
+};
+
+const { title, date, subtitle, author } = frontmatter;
+---
+<div class="w-full flex mt-10 space-x-4 bg-gray-50">
+    <div class="w-1/2 h-72"><img class="rounded-sm object-cover w-full h-full" src="/holbein.jpg"></div>
+    <div class="w-1/2 py-4 space-y-1">
+        <h2>{title}</h2>
+        <span class="block text-[#2c3c3c]">{subtitle}</span>
+        <div class="flex items-center info-light font-semibold uppercase">
+            <span class="text-[13px]">{author}</span>
+            <span class="text-[13px] mx-2">{date}</span>
+        </div>
+    </div>
+</div>

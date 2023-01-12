@@ -1,11 +1,36 @@
 ---
-
 ---
 
 <ul class="linkbar space-x-8">
-    <li class="w-16 text-center text-[16px] selected"><button class="py-2">Software</button></li>
-    <li class="w-16 text-center text-[16px]"><button class="py-2">History</button></li>
-    <li class="w-16 text-center text-[16px]"><button class="py-2">RPGs</button></li>
-    <li class="w-16 text-center text-[16px]"><button class="py-2">About</button></li>
-    <li class="w-16 text-center text-[16px]"><button class="py-2">Contact</button></li>
+    <li class="w-16 text-center text-[16px]"><button id="home" class="py-1">Home</button></li>
+    <li class="w-16 text-center text-[16px]"><button id="software" class="py-1">Software</button></li>
+    <li class="w-16 text-center text-[16px]"><button id="history" class="py-1">History</button></li>
+    <li class="w-16 text-center text-[16px]"><button id="rpgs" class="py-1">RPGs</button></li>
+    <li class="w-16 text-center text-[16px]"><button id="about" class="py-1">About</button></li>
+    <li class="w-16 text-center text-[16px]"><button id="contact" class="py-1">Contact</button></li>
 </ul>
+<script is:inline>
+// redirect to page on button click
+const buttons = document.querySelectorAll('.linkbar button');
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        //redirect
+        const nextPage = button.innerText.toLowerCase();
+        if (nextPage === 'home') {
+            window.location.href = '/';
+        } else {
+            window.location.href = `/${nextPage}`;
+        };
+    });
+});
+
+// apply 'selected' class to current page button parent
+const currentPage = window.location.href.split('/').pop();
+console.log(currentPage);
+if (currentPage === '') {
+    document.getElementById('home').parentElement.classList.add('selected');
+} else {
+    document.getElementById(currentPage).parentElement.classList.add('selected');
+};
+
+</script>
