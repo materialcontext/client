@@ -1,4 +1,9 @@
 ---
+import Wrapper from "../layouts/Wrapper.astro";
+import Nav from "../components/nav.astro";
+import SocialShare from "../components/socialShare.astro";
+import Card from "../components/card.astro";
+
 export async function getStaticPaths() {
     const allPosts = await Astro.glob('../../content/blog/*.md');
 
@@ -14,7 +19,22 @@ export async function getStaticPaths() {
     });
 }
 
-const { Content, frontmatter } = Astro.props;
+export interface Props {
+	title: string;
+}
+
+const { Content } = Astro.props;
+const {title, subtitle } = Astro.props.frontmatter;
 --- 
 
-<Content frontmatter={frontmatter} />
+
+<Wrapper title={title}>
+	<Nav slot="nav"/>
+	<h1>{title}</h1>
+	<h5 class="mt-[12px]">{subtitle}</h5>
+	<div class="py-6 flex justify-between">
+        <Card over="Material Context" under="00hr ago"/>
+        <SocialShare />
+    </div>
+	<Content />
+</Wrapper>

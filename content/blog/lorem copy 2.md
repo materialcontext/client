@@ -1,9 +1,9 @@
 ---
-title: 'This is the title of the first post.'
-subtitle: 'This is the subtitle of the first post.'
+title: 'This is the title of the first post'
+subtitle: 'This is the subtitle of the first post'
 author: 'John Doe'
 date: '2022-01-10'
-page: 'test'
+page: 'test03'
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at mauris sed quam dignissim efficitur quis eget sem. Vivamus non nulla sit amet tortor porttitor lobortis at tristique nisi. Nunc tempor sollicitudin finibus. Pellentesque quis tempus sem. In sit amet nulla ac eros tristique consequat. Duis fermentum blandit eros, nec aliquet lectus scelerisque et. Aliquam erat volutpat. Ut finibus neque vitae est bibendum ultrices.

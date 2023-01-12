@@ -1,0 +1,59 @@
+---
+import Wrapper from "../layouts/Wrapper.astro";
+import Nav from "../components/nav.astro";
+import Linkbar from "../components/linkbar.astro";
+import RecentPosts from "../components/recentPosts.jsx"
+import Card from "../components/card.astro";
+
+const frontmatter = {
+    title: "A Dummy Article Preview", 
+    date: "2022-01-01", 
+    subtitle: "This is a demo preview.", 
+    author: "Material Context"
+};
+
+
+---
+<Wrapper title="Material Context">
+    <Nav slot="nav" />
+    <Linkbar slot="nav" />
+    <div class="w-full flex mt-10 space-x-4">
+        <div class="w-1/2 h-60"><img class="rounded-sm object-cover w-full h-full" src="/holbein.jpg"></div>
+        <div class="w-1/2 py-2 space-y-1">
+            <h2>{frontmatter.title}</h2>
+            <span class="block text-[#2c3c3c]">{frontmatter.subtitle}</span>
+            <div class="flex items-center info-light font-semibold uppercase">
+                <span class="text-[13px]">{frontmatter.author}</span>
+                <span class="text-[13px] mx-2">{frontmatter.date}</span>
+            </div>
+        </div>
+    </div>
+    <div class="w-full flex space-x-12 px-4 py-8">
+        <div class="w-2/3">
+            <span class="block border-b border-b-[#ddd] py-[.75rem] text-[15px] font-medium text-[#2c3c3c] mb-4">Menu</span>
+            <RecentPosts client:load/>
+        </div>
+        <div class="w-1/3 flex flex-col space-y-2">
+            <div class="w-full">
+                <span class="block border-b border-b-[#ddd] py-[.75rem] text-[15px] font-medium text-[#2c3c3c] mb-4">Recommendations</span>
+                <ul class="w-full flex flex-col space-y-2">
+                    <li class="w-full"><button class="w-full"><Card over="The Website.com" under="Name Person"/></button></li>
+                    <li class="w-full"><button class="w-full"><Card over="The Website.com" under="Name Person"/></button></li>
+                    <li class="w-full"><button class="w-full"><Card over="The Website.com" under="Name Person"/></button></li>
+                    <li class="w-full"><button class="w-full"><Card over="The Website.com" under="Name Person"/></button></li>
+                    <li class="w-full"><button class="w-full"><Card over="The Website.com" under="Name Person"/></button></li>
+                </ul>
+            </div>
+            <div>
+                <span class="block border-b border-b-[#ddd] py-[.75rem] text-[15px] font-medium text-[#2c3c3c] mb-4">Greatest Hits</span>
+                <div class="flex flex-col space-y-2">
+                    <span class="block"><a class="info-light text-[15px]" href="/">How about trying this one?</a></span>
+                    <span class="block"><a class="info-light text-[15px]" href="/">What about me?</a></span>
+                    <span class="block"><a class="info-light text-[15px]" href="/">Why not this one? What ahve youu got to lose?</a></span>
+                    <span class="block"><a class="info-light text-[15px]" href="/">How about trying this one?</a></span>
+                    <span class="block"><a class="info-light text-[15px]" href="/">What about this guy here?</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</Wrapper>

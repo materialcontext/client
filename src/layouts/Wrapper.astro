@@ -1,0 +1,51 @@
+---
+import '../style.css';
+
+const {title} = Astro.props
+---
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/logo00.svg" />
+		<title>{title || "Material Context"}</title>
+	</head>
+    <body>
+       	<header>
+			<nav>
+				<slot name="nav" />
+			</nav>
+		</header>
+        <main class="px-2 pt-20 min-w-[16rem] md:max-w-[48rem] md:px-3 mx-auto">
+			<slot />
+        </main>
+		<footer class="p-4 w-full h-16 bg-gray-100 flex flex-col space-y-3 items-center justify-center border-t border-t-[#ddd]">
+            <span class="info-light text-[15px]">© 2023 Material Context</span>
+        </footer>
+    </body>
+</html>
+
+<script>
+    // subscribe button
+    document.querySelector(".subscribe").addEventListener("click", () => {
+        alert("Subscribe")
+    })
+
+    // sign-in button
+    document.querySelector(".signin").addEventListener("click", () => {
+        alert("Sign-In")
+    })
+
+    //hide on scroll down, show on scroll up
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function() {
+        var currentScrollPos = window.pageYOffset;
+        if (prevScrollpos > currentScrollPos) {
+            document.querySelector("nav").style.top = "0";
+        } else {
+            document.querySelector("nav").style.top = "-120px";
+        }
+        prevScrollpos = currentScrollPos;
+    }
+</script>
